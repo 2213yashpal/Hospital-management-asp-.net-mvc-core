@@ -1,0 +1,65 @@
+﻿@model HospitalManagement.Models.UserModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="~/loginregisterassets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/iofrm-style.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/iofrm-theme9.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Access more things with Register.</h3>
+                    <img src="~/loginregisterassets/images/graphic5.svg" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a asp-controller="Home" asp-action="Index">
+                                <div style="color:white;">
+                                    <h2>Medicate</h2>
+                                </div>
+                            </a><br/>
+                            
+                        </div>
+                        <div class="page-links">
+                            <a asp-controller="User" asp-action="login">Login</a>
+                            <a asp-controller="User" asp-action="register" class="active">Register</a>
+                        </div>
+                        <form asp-controller="User" asp-action="register" method="post">
+                            <input class="form-control" type="text" asp-for="name" id="Name" name="name" placeholder="Full Name" required>
+                            <input class="form-control" type="email" asp-for="email" name="email" id="email" placeholder="E-mail Address" required>
+                            <input class="form-control" type="password" asp-for="password" name="password" id="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button  name="Register" type="submit" class="ibtn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/loginregisterassets/js/bootstrap.min.js"></script>
+    <script src="~/loginregisterassets/js/jquery.min.js"></script>
+    <script src="~/loginregisterassets/js/main.js"></script>
+    <script src="~/loginregisterassets/js/popper.min.js"></script>
+
+</body>
+
+<!-- Mirrored from brandio.io/envato/iofrm/html/register9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 12:40:42 GMT -->
+</html>

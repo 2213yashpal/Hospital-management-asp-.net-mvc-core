@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Addmedicine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="page-header">
+              <h3 class="page-title"> Add Medicine </h3>
+            </div>
+    <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Medicine</h4>
+                <form asp-controller="Medicine" asp-action="Addmedicine" method="post">
+                      <div class="mb-3">
+                        <label for="mname" class="form-label">Name</label>
+                        <input type="text" name="Name" class="form-control" id="mname" />
+                      </div>
+                        <div class="mb-3">
+                        <label for="mdesc" class="form-label">Description</label>
+                        <input type="text" name="Description" class="form-control" id="mdesc" />
+                      </div>
+                        <div class="mb-3">
+                        <label for="mquantity" class="form-label">Quantity</label>
+                        <input type="text" name="Quantity" class="form-control" id="mquantity" />
+                      </div>
+                        <div class="mb-3">
+                        <label for="mprice" class="form-label">Price</label>
+                        <input type="text" name="Price" class="form-control" id="mprice" />
+                      </div>
+                      <button type="submit"   class="btn btn-primary">Add</button>
+                    </form>
+
+                      @if (TempData["msg"] != null)
+                    {
+                    <script>
+                        alert('@TempData["msg"].ToString();');
+                        window.location.href = "@Url.Action("Listofmedicine","Medicine")";
+                    </script>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Listofpendingappointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List of Pending Appointment</h1>
+<br />
+
+<div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <a asp-controller="Appointment" asp-action="Addappointment" class="btn btn-outline-success btn-fw">Add Appointment</a><br /><br />
+
+
+
+
+                    <table class="table table-bordered table-responsive  table-hover">
+                        <tr>
+                            <th>Id</th>
+                            <th>Patientname</th>
+                            <th>Doctorname</th>
+                            <th>AppointmentDate</th>
+                            <th>Problem</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            
+
+
+                        </tr>
+                        @foreach (AppointmentModel item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Patientname</td>
+                                <td>@item.Doctorname</td>
+                                <td>@item.AppointmentDate</td>
+                                <td>@item.Problem</td>
+                                <td>@item.Status</td>
+                                <td>
+                                    <a asp-action="editapp" asp-route-id="@item.Id"><button class="btn btn-warning mr-2">Edit</button> </a>
+                                    <a asp-action="deleteapp" asp-route-id="@item.Id"> <button class="btn btn-danger">Delete</button></a>
+
+                                </td>
+                                
+
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+  @*  <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Approve Appointment</h4>
+                      <form>
+                    <div class="mb-3">
+                        <input type="text" placeholder="Enter Id" name="Id" class="form-control" id="Id" />
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="Status" id="action" aria-label="Default select example">
+                            <option selected>Chosse</option>
+                            <option value="Approve">Approve</option>
+                            <option value="Delete">Delete</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>

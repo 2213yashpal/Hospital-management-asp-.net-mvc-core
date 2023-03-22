@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Listofmedicine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List of medicine</h1><br />
+<div>
+        <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of Medicine</h4>
+
+          <a asp-controller="Medicine" asp-action="Addmedicine" class="btn btn-outline-success btn-fw">Add Medicine</a><br /><br />
+
+        <table class="table table-bordered table-responsive  table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+
+        </tr>
+        @foreach (MedicineModel item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+
+            </tr>
+        }
+    </table>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
+
+
+

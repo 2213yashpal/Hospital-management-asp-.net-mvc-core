@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Listofannouncement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List of announcement</h1>
+<br />
+
+<div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <a asp-controller="Announcement" asp-action="Addannouncement" class="btn btn-outline-success btn-fw">Add Announcements</a><br /><br />
+
+                    <table class="table table-bordered table-responsive  table-hover">
+                        <tr>
+                            <th>Id</th>
+                            <th>Announcements</th>
+                            <th>AnnouncementFor</th>
+                            <th>Enddate</th>
+                        </tr>
+                        @foreach (AnnouncementsModel item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Announcements</td>
+                                <td>@item.AnnouncementFor</td>
+                                <td>@item.Enddate</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

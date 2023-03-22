@@ -1,0 +1,73 @@
+﻿@model HospitalManagement.Models.UserModel;
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from brandio.io/envato/iofrm/html/login9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 12:39:40 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="~/loginregisterassets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/iofrm-style.css" rel="stylesheet" />
+    <link href="~/loginregisterassets/css/iofrm-theme9.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Access more things with Login </h3>
+                    <img src="~/loginregisterassets/images/graphic5.svg" alt=""/>
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="Home.aspx">
+                                <div style="color:white;">
+                                    <h2>Medicate</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="page-links">
+                            <a asp-controller="User" asp-action="login" class="active">Login</a>
+                            <a asp-controller="User" asp-action="register">Register</a>
+                        </div>
+                        <form asp-controller="User" asp-action="login" method="post">
+                            <input class="form-control" asp-for="email"  type="email" value="yashpalahir3739@gmail.com" id="email" placeholder="E-mail Address" >
+                            <input class="form-control" asp-for="password" value="yashpal" type="password" id="password" placeholder="Password" >
+                            <div class="form-button">
+                                <button id="submit" type="submit"  class="ibtn">Login</button> 
+                            </div>
+                        </form>
+        
+
+                        @if (TempData["msg"] != null)
+                        {
+                            <script>
+                                alert('@TempData["msg"].ToString();');
+                                window.location.href = "@Url.Action("dashboard","User")";
+                            </script>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/loginregisterassets/js/bootstrap.min.js"></script>
+    <script src="~/loginregisterassets/js/jquery.min.js"></script>
+    <script src="~/loginregisterassets/js/main.js"></script>
+    <script src="~/loginregisterassets/js/popper.min.js"></script>
+</body>
+
+<!-- Mirrored from brandio.io/envato/iofrm/html/login9.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 12:39:43 GMT -->
+</html>

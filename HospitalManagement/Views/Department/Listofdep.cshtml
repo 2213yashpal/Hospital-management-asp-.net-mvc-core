@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Listofdep";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List of Department</h1>
+<br />
+
+<div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <a asp-controller="Department" asp-action="Adddepartment" class="btn btn-outline-success btn-fw">Add Department</a><br /><br />
+
+                    <table class="table table-bordered table-responsive  table-hover">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                        @foreach (DepartmentModel item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Status</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

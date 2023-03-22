@@ -1,0 +1,74 @@
+﻿@model HospitalManagement.Models.AppointmentModel
+@{
+    ViewData["Title"] = "editapp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="page-header">
+    <h3 class="page-title"> Edit Appointment </h3>
+</div>
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Take Appointment</h4>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <form asp-controller="Appointment" asp-action="editapp" method="post">
+                    <div class="mb-3">
+                        <label for="pname" class="form-label">Patient Name</label>                       @* <input type="text" name="Patientname" class="form-control" id="pname" />*@
+                  
+                @Html.EditorFor(Model=>Model.Patientname,new {htmlAttributes=new {@class="form-control"}})
+</div>
+                    <div class="mb-3">
+                        <label for="dname" class="form-label">Doctor Name</label>
+                            @Html.EditorFor(Model=>Model.Doctorname,new {htmlAttributes=new {@class="form-control"}})
+                        @*<select name="Doctorname" class="form-select" id="dname" aria-label="Default select example">
+                            <option selected>Chosse</option>
+                            <option value="Shrukant Sharma">Shrukant Sharma</option>
+                            <option value="Nishani kansu">Nishani kansu</option>
+                            <option value="murli parmar">murli parmar</option>
+                        </select>*@
+                    </div>
+                    <div class="mb-3">
+                        <label for="Appointmentdate" class="form-label">Appointment Date</label>
+                            @Html.EditorFor(Model=>Model.AppointmentDate,new {htmlAttributes=new {@class="form-control"}})
+@*                        <input type="date" name="AppointmentDate" class="form-control" id="Appointmentdate" />
+*@                    </div>
+                    <div class="mb-3">
+                        <label for="problem" class="form-label">Problem</label>
+                            @Html.EditorFor(Model=>Model.Problem,new {htmlAttributes=new {@class="form-control"}})
+@*                        <input type="text" name="Problem" class="form-control" id="problem" />
+*@                    </div>
+                     <div class="mb-3">
+                        <label for="problem" class="form-label">Problem</label>
+                            @Html.EditorFor(Model=>Model.Problem,new {htmlAttributes=new {@class="form-control"}})
+@*                        <input type="text" name="Problem" class="form-control" id="problem" />
+*@                    </div>
+                    <div class="mb-3">
+                        <label for="Status" class="form-label">Status</label>
+                            @Html.EditorFor(Model=>Model.Status,new {htmlAttributes=new {@class="form-control"}})
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                }
+                @if (TempData["msg"] != null)
+                {
+                    <script>
+                        alert('@TempData["msg"].ToString();');
+                        window.location.href = "@Url.Action("Listofactiveappointment","Appointment")";
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

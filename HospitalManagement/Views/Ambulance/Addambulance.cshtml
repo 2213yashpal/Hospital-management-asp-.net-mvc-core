@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Addambulance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="page-header">
+              <h3 class="page-title"> Add Ambulance </h3>
+            </div>
+    <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Ambulance</h4>
+                <form asp-controller="Ambulance" asp-action="Addambulance" method="post">
+                      <div class="mb-3">
+                        <label for="aname" class="form-label">Name</label>
+                        <input type="text" name="Name" class="form-control" id="aname" />
+                      </div>
+                        <div class="mb-3">
+                        <label for="ano" class="form-label">Ambulance No</label>
+                        <input type="text"  name="AmbulanceNo" class="form-control" id="ano" />
+                      </div>
+                        <div class="mb-3">
+                        <label for="astatus" class="form-label">Ambulance Status</label>
+                          <select class="form-select" name="AmbulanceStatus" id="astatus" aria-label="Default select example">
+                              <option value="1" selected>Select Status</option>
+                              <option value="Available">Available</option>
+                              <option value="Busy">busy</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                        <label for="adname" class="form-label">Ambulance Driver Name</label>
+                        <input type="text" name="AmbulanceDriverName" class="form-control" id="adname" />
+                      </div>
+                      <button type="submit"  class="btn btn-primary">Add</button>
+                    </form>
+                @if (TempData["msg"] != null)
+                {
+                    <script>
+                        alert('@TempData["msg"].ToString();');
+                        window.location.href = "@Url.Action("Listofambulance","Ambulance")";
+                    </script>
+                }
+                  </div>
+                </div>
+              </div>
+            </div>
